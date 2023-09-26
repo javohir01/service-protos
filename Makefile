@@ -3,9 +3,10 @@ PROTOS_PATH=$(PWD)/src/infrastructure/protos
 
 gen-eater-proto:
 	protoc \
-	--go_out=./src/application/protos \
+	--go_out=./genprotos \
 	--go_opt=paths=import \
-	--go-grpc_out=./src/application/protos \
+	--go-grpc_out=./genprotos \
 	--go-grpc_opt=paths=import \
-	-I=$(PROTOS_PATH)/eater \
-	$(PROTOS_PATH)/eater/*.proto
+	-I=/usr/local \
+	-I=$(PWD)/eater \
+	$(PWD)/eater/*.proto
